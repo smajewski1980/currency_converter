@@ -205,8 +205,17 @@ async function setData() {
 
 setData();
 
+const tempDiv = document.querySelector(".temp-output");
 setTimeout(() => {
   const rateObjectsRaw = localStorage.getItem("currency_data");
   const rateObjects = JSON.parse(rateObjectsRaw);
+  for (const rate in rateObjects) {
+    tempDiv.innerHTML += `
+      ${rateObjects[rate].code},
+      ${rateObjects[rate].symbol},
+      ${rateObjects[rate].name},
+      ${rateObjects[rate].rate}</br>
+    `;
+  }
   console.log(rateObjects);
 }, 50);
