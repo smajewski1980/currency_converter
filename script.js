@@ -5,31 +5,126 @@ const options = {
   },
 };
 
-async function getExchangeRates(endpoint) {
-  // the api data is updated daily, no need to check more than once a day
-  // maybe later instead of checking for 24hrs to pass, use day of week
-  const now = Date.now();
-  const lastCheck = localStorage.getItem("lastCheckedTime");
-  if (!lastCheck || now - lastCheck > 86400000) {
-    console.log("hello");
-    localStorage.setItem("lastCheckedTime", Date.now());
-  }
-
-  const BASE_URL = `https://api.freecurrencyapi.com/v1/${endpoint}`;
+async function getExchangeRates() {
+  const BASE_URL = `https://api.freecurrencyapi.com/v1/${"currencies"}`;
   const response = await fetch(BASE_URL, options);
   const result = await response.text();
   const data = await JSON.parse(result);
   return data.data;
 }
 
-const rates = [];
-
 async function setData() {
-  let currentRates = await getExchangeRates("currencies");
-  for (const rate in currentRates) {
-    rates.push(currentRates[rate]);
+  const rates = {};
+  const now = Date.now();
+  const lastCheck = localStorage.getItem("lastCheckedTime");
+
+  if (!lastCheck || now - lastCheck > 86400000) {
+    // the api data is updated daily, no need to check more than once a day
+    // maybe later instead of checking for 24hrs to pass, use day of week
+    localStorage.setItem("lastCheckedTime", Date.now());
+    let currentRates = await getExchangeRates();
+
+    for (const rate in currentRates) {
+      switch (currentRates[rate].code) {
+        case "EUR":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "USD":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "JPY":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "GBP":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "AUD":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "CAD":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "MXN":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "TRY":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "PLN":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        case "CHF":
+          rates[currentRates[rate].code] = new Rate(
+            currentRates[rate].code,
+            currentRates[rate].name,
+            currentRates[rate].symbol,
+            currentRates[rate].name_plural
+          );
+          break;
+        default:
+          break;
+      }
+    }
+    localStorage.setItem("currency_data", JSON.stringify(rates));
   }
 }
-console.log(rates);
 
 setData();
+
+const rateObjectsRaw = localStorage.getItem("currency_data");
+const rateObjects = JSON.parse(rateObjectsRaw);
+console.log(rateObjects);
+
+class Rate {
+  constructor(code, name, symbol, namePlural) {
+    this.code = code;
+    this.name = name;
+    this.symbol = symbol;
+    this.namePlural = namePlural;
+  }
+}
