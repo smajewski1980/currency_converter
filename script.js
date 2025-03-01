@@ -95,10 +95,12 @@ async function setData() {
 
   if (
     !lastCheckedDay ||
-    new Date().getHours() > 17 ||
+    (new Date().getHours() > 17 &&
+      localStorage.getItem("lastCheckedHour") < 17) ||
     !localStorage.getItem("currency_data")
   ) {
     localStorage.setItem("lastCheckedDay", new Date().getDay());
+    localStorage.setItem("lastCheckedHour", new Date().getHours());
 
     let currentRates = await getExchangeRates("latest");
 
@@ -218,7 +220,7 @@ setTimeout(() => {
     `;
   }
   console.log(rateObjects);
-}, 500);
+}, 750);
 
 console.log(new Date().getDay());
 console.log(new Date().getHours());
