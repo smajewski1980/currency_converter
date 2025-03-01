@@ -208,3 +208,11 @@ setData();
 const rateObjectsRaw = localStorage.getItem("currency_data");
 const rateObjects = JSON.parse(rateObjectsRaw);
 console.log(rateObjects);
+
+const selectListOptions = document.querySelectorAll("option");
+selectListOptions.forEach((option) => {
+  const value = option.value;
+  const text = option.innerText;
+  const symbol = ratesInfo[value].symbol;
+  option.innerText = symbol + " - " + text;
+});
