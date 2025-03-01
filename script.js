@@ -90,16 +90,21 @@ async function getExchangeRates(endpoint) {
 async function setData() {
   const rates = {};
   const now = Date.now();
-  const lastCheck = localStorage.getItem("lastCheckedTime");
+  // const lastCheck = localStorage.getItem("lastCheckedTime");
+  const lastCheckedDay = localStorage.getItem("lastCheckedDay");
 
   if (
-    !lastCheck ||
-    now - lastCheck > 86400000 ||
+    // !lastCheck ||
+    // now - lastCheck > 86400000 ||
+    // !localStorage.getItem("currency_data")
+    !lastCheckedDay ||
+    new Date().getHours() > 17 ||
     !localStorage.getItem("currency_data")
   ) {
     // the api data is updated daily, no need to check more than once a day
     // maybe later instead of checking for 24hrs to pass, use day of week
-    localStorage.setItem("lastCheckedTime", Date.now());
+    // localStorage.setItem("lastCheckedTime", Date.now());
+    localStorage.setItem("lastCheckedDay", new Date().getDay());
 
     let currentRates = await getExchangeRates("latest");
 
@@ -205,6 +210,7 @@ async function setData() {
 
 setData();
 
+// temp div just to display something in the browser for now
 const tempDiv = document.querySelector(".temp-output");
 setTimeout(() => {
   const rateObjectsRaw = localStorage.getItem("currency_data");
@@ -218,4 +224,7 @@ setTimeout(() => {
     `;
   }
   console.log(rateObjects);
-}, 50);
+}, 500);
+
+console.log(new Date().getDay());
+console.log(new Date().getHours());
