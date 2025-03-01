@@ -90,7 +90,6 @@ async function getExchangeRates(endpoint) {
 async function setData() {
   const rates = {};
   const now = Date.now();
-  // const lastCheck = localStorage.getItem("lastCheckedTime");
   const lastCheckedDay = localStorage.getItem("lastCheckedDay");
 
   if (
@@ -206,21 +205,6 @@ async function setData() {
 
 setData();
 
-// temp div just to display something in the browser for now
-const tempDiv = document.querySelector(".temp-output");
-setTimeout(() => {
-  const rateObjectsRaw = localStorage.getItem("currency_data");
-  const rateObjects = JSON.parse(rateObjectsRaw);
-  for (const rate in rateObjects) {
-    tempDiv.innerHTML += `
-      ${rateObjects[rate].code},
-      ${rateObjects[rate].symbol},
-      ${rateObjects[rate].name},
-      ${rateObjects[rate].rate}</br>
-    `;
-  }
-  console.log(rateObjects);
-}, 750);
-
-console.log(new Date().getDay());
-console.log(new Date().getHours());
+const rateObjectsRaw = localStorage.getItem("currency_data");
+const rateObjects = JSON.parse(rateObjectsRaw);
+console.log(rateObjects);
