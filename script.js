@@ -1,3 +1,76 @@
+class Rate {
+  constructor(code, name, symbol, namePlural, rate) {
+    this.code = code;
+    this.name = name;
+    this.symbol = symbol;
+    this.namePlural = namePlural;
+    this.rate = rate;
+  }
+}
+
+let ratesInfo = {
+  EUR: {
+    code: "EUR",
+    name: "Euro",
+    symbol: "€",
+    namePlural: "Euros",
+  },
+  USD: {
+    code: "USD",
+    name: "US Dollar",
+    symbol: "$",
+    namePlural: "US dollars",
+  },
+  JPY: {
+    code: "JPY",
+    name: "Japanese Yen",
+    symbol: "¥",
+    namePlural: "Japanese yen",
+  },
+  GBP: {
+    code: "GBP",
+    name: "British Pound Sterling",
+    symbol: "£",
+    namePlural: "British pounds sterling",
+  },
+  PLN: {
+    code: "PLN",
+    name: "Polish Zloty",
+    symbol: "zł",
+    namePlural: "Polish zlotys",
+  },
+  CHF: {
+    code: "CHF",
+    name: "Swiss Franc",
+    symbol: "CHF",
+    namePlural: "Swiss francs",
+  },
+  TRY: {
+    code: "TRY",
+    name: "Turkish Lira",
+    symbol: "TL",
+    namePlural: "Turkish Lira",
+  },
+  AUD: {
+    code: "AUD",
+    name: "Australian Dollar",
+    symbol: "AU$",
+    namePlural: "Australian dollars",
+  },
+  CAD: {
+    code: "CAD",
+    name: "Canadian Dollar",
+    symbol: "CA$",
+    namePlural: "Canadian dollars",
+  },
+  MXN: {
+    code: "MXN",
+    name: "Mexican Peso",
+    symbol: "MX$",
+    namePlural: "Mexican pesos",
+  },
+};
+
 const options = {
   method: "GET",
   headers: {
@@ -5,9 +78,10 @@ const options = {
   },
 };
 
-async function getExchangeRates() {
-  const BASE_URL = `https://api.freecurrencyapi.com/v1/${"currencies"}`;
-  const response = await fetch(BASE_URL, options);
+async function getExchangeRates(endpoint) {
+  const BASE_URL = "https://api.freecurrencyapi.com/v1/";
+  const URL = `${BASE_URL}${endpoint}`;
+  const response = await fetch(URL, options);
   const result = await response.text();
   const data = await JSON.parse(result);
   return data.data;
@@ -26,88 +100,99 @@ async function setData() {
     // the api data is updated daily, no need to check more than once a day
     // maybe later instead of checking for 24hrs to pass, use day of week
     localStorage.setItem("lastCheckedTime", Date.now());
-    let currentRates = await getExchangeRates();
 
-    for (const rate in currentRates) {
-      switch (currentRates[rate].code) {
+    let currentRates = await getExchangeRates("latest");
+
+    for (const rate in ratesInfo) {
+      switch (ratesInfo[rate].code) {
         case "EUR":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "USD":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "JPY":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "GBP":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "AUD":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "CAD":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "MXN":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "TRY":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "PLN":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         case "CHF":
-          rates[currentRates[rate].code] = new Rate(
-            currentRates[rate].code,
-            currentRates[rate].name,
-            currentRates[rate].symbol,
-            currentRates[rate].name_plural
+          rates[ratesInfo[rate].code] = new Rate(
+            ratesInfo[rate].code,
+            ratesInfo[rate].name,
+            ratesInfo[rate].symbol,
+            ratesInfo[rate].name_plural,
+            currentRates[ratesInfo[rate].code]
           );
           break;
         default:
@@ -120,15 +205,8 @@ async function setData() {
 
 setData();
 
-const rateObjectsRaw = localStorage.getItem("currency_data");
-const rateObjects = JSON.parse(rateObjectsRaw);
-console.log(rateObjects);
-
-class Rate {
-  constructor(code, name, symbol, namePlural) {
-    this.code = code;
-    this.name = name;
-    this.symbol = symbol;
-    this.namePlural = namePlural;
-  }
-}
+setTimeout(() => {
+  const rateObjectsRaw = localStorage.getItem("currency_data");
+  const rateObjects = JSON.parse(rateObjectsRaw);
+  console.log(rateObjects);
+}, 50);
