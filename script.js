@@ -8,66 +8,76 @@ class Rate {
   }
 }
 
-let ratesInfo = {
+let countryInfo = {
   EUR: {
     code: "EUR",
     name: "Euro",
     symbol: "€",
     namePlural: "Euros",
+    image: "/assets/euro_flag.png",
   },
   USD: {
     code: "USD",
     name: "US Dollar",
     symbol: "$",
     namePlural: "US dollars",
+    image: "/assets/us_flag.png",
   },
   JPY: {
     code: "JPY",
     name: "Japanese Yen",
     symbol: "¥",
     namePlural: "Japanese yen",
+    image: "/assets/japan_flag.png",
   },
   GBP: {
     code: "GBP",
     name: "British Pound Sterling",
     symbol: "£",
     namePlural: "British pounds sterling",
+    image: "/assets/british_flag.png",
   },
   PLN: {
     code: "PLN",
     name: "Polish Zloty",
     symbol: "zł",
     namePlural: "Polish zlotys",
+    image: "/assets/poland_flag.png",
   },
   CHF: {
     code: "CHF",
     name: "Swiss Franc",
     symbol: "CHF",
     namePlural: "Swiss francs",
+    image: "/assets/switzerland_flag.png",
   },
   TRY: {
     code: "TRY",
     name: "Turkish Lira",
     symbol: "TL",
     namePlural: "Turkish Lira",
+    image: "/assets/turkey_flag.png",
   },
   AUD: {
     code: "AUD",
     name: "Australian Dollar",
     symbol: "AU$",
     namePlural: "Australian dollars",
+    image: "/assets/australia_flag.png",
   },
   CAD: {
     code: "CAD",
     name: "Canadian Dollar",
     symbol: "CA$",
     namePlural: "Canadian dollars",
+    image: "/assets/canada_flag.png",
   },
   MXN: {
     code: "MXN",
     name: "Mexican Peso",
     symbol: "MX$",
     namePlural: "Mexican pesos",
+    image: "/assets/mexico_flag.png",
   },
 };
 
@@ -103,96 +113,96 @@ async function setData() {
 
     let currentRates = await getExchangeRates("latest");
 
-    for (const rate in ratesInfo) {
-      switch (ratesInfo[rate].code) {
+    for (const rate in countryInfo) {
+      switch (countryInfo[rate].code) {
         case "EUR":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "USD":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "JPY":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "GBP":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "AUD":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "CAD":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "MXN":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "TRY":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "PLN":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         case "CHF":
-          rates[ratesInfo[rate].code] = new Rate(
-            ratesInfo[rate].code,
-            ratesInfo[rate].name,
-            ratesInfo[rate].symbol,
-            ratesInfo[rate].name_plural,
-            currentRates[ratesInfo[rate].code]
+          rates[countryInfo[rate].code] = new Rate(
+            countryInfo[rate].code,
+            countryInfo[rate].name,
+            countryInfo[rate].symbol,
+            countryInfo[rate].name_plural,
+            currentRates[countryInfo[rate].code]
           );
           break;
         default:
@@ -213,6 +223,6 @@ const selectListOptions = document.querySelectorAll("option");
 selectListOptions.forEach((option) => {
   const value = option.value;
   const text = option.innerText;
-  const symbol = ratesInfo[value].symbol;
-  option.innerText = symbol + " - " + text;
+  const symbol = countryInfo[value].symbol;
+  option.innerText = text + " - " + symbol;
 });
