@@ -94,16 +94,10 @@ async function setData() {
   const lastCheckedDay = localStorage.getItem("lastCheckedDay");
 
   if (
-    // !lastCheck ||
-    // now - lastCheck > 86400000 ||
-    // !localStorage.getItem("currency_data")
     !lastCheckedDay ||
     new Date().getHours() > 17 ||
     !localStorage.getItem("currency_data")
   ) {
-    // the api data is updated daily, no need to check more than once a day
-    // maybe later instead of checking for 24hrs to pass, use day of week
-    // localStorage.setItem("lastCheckedTime", Date.now());
     localStorage.setItem("lastCheckedDay", new Date().getDay());
 
     let currentRates = await getExchangeRates("latest");
