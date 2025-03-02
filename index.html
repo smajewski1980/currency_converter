@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>The Change Changer</h1>
     <main>
-      <left-col>
+      <div class="left-col">
+        <div class="img-wrapper">
+          <img src="" alt="" />
+        </div>
         <p>select your base currency</p>
         <select name="select-curr" id="select-curr">
           <option value="USD">US Dollar</option>
@@ -21,12 +25,15 @@
           <option value="EUR">Euro</option>
           <option value="CAD">Canadian Dollar</option>
           <option value="GBP">British Pound Sterling</option>
-          <option value="AUD">Australian Dollar</option>
-        </select>
-        <label for="amount">enter the amount to convert $</label>
-        <input type="text" name="select-amt" id="select-amt" value="1" />
-      </left-col>
-      <right-col>
+          <option value="AUD">Australian Dollar</option></select
+        ><br />
+        <label for="amount">enter the amount to convert</label>
+        <input type="text" name="select-amt" id="select-amt" value="$1" />
+      </div>
+      <div class="right-col">
+        <div class="img-wrapper">
+          <img src="" alt="" />
+        </div>
         <p>currency to convert to</p>
         <select name="select-conv" id="select-conv">
           <option value="USD">US Dollar</option>
@@ -40,7 +47,7 @@
           <option value="GBP">British Pound Sterling</option>
           <option value="AUD">Australian Dollar</option>
         </select>
-      </right-col>
+      </div>
     </main>
   </body>
 </html>

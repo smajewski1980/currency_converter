@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+main > * {
+  flex-basis: 300px;
+  text-align: center;
+}
+
+.left-col,
+.right-col {
+  padding-block: 0.5rem 4.75rem;
+  outline: 3px solid grey;
+}
+
+.img-wrapper {
+  min-height: 4.25rem;
+  width: 50px;
+  margin-inline: auto;
+  display: grid;
+  place-content: center;
+}

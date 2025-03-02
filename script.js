@@ -226,3 +226,23 @@ selectListOptions.forEach((option) => {
   const symbol = countryInfo[value].symbol;
   option.innerText = text + " - " + symbol;
 });
+
+function handleSelect(e) {
+  const country = countryInfo[e.target.value];
+
+  if (e.target.parentElement.classList.contains("left-col")) {
+    const leftColImg = document.querySelector(".left-col img");
+    leftColImg.src = country.image;
+    leftColImg.alt = `${country.name} Flag`;
+  } else {
+    const rightColImg = document.querySelector(".right-col img");
+    rightColImg.src = country.image;
+    rightColImg.alt = `${country.name} Flag`;
+  }
+}
+
+const imageElems = document.querySelectorAll("img");
+const selectLists = document.querySelectorAll("select");
+selectLists.forEach((select) => {
+  select.addEventListener("change", handleSelect);
+});
