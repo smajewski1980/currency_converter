@@ -264,29 +264,24 @@ selectLists.forEach((select) => {
   select.addEventListener("change", handleFlagSelect);
 });
 
-function handleConvert() {
+function handleConversion() {
   const baseCurr = selectLists[0].value;
   const amountToConvInput = document.querySelector("#select-amt");
   const convToCurr = selectLists[1].value;
   const convertedAmountElem = document.querySelector(".converted");
 
-  let inputVal = amountToConvInput.value;
-  let amount = 0;
-
-  // for now, strip the dollar sign off
-  if (isNaN(parseInt(inputVal))) {
-    console.log(inputVal.slice(1, -1));
-    amount = parseInt(inputVal.slice(1));
-  } else {
-    amount = inputVal;
-  }
-
+  let amount = amountToConvInput.value;
+  const convToRate = rateObjects[convToCurr].rate;
+  let result;
   if (baseCurr === "USD") {
-    // const rate = rateObjects[convToCurr].rate;
-    // const result = Math.round(amount * rate).toLocaleString();
+    result = Math.round(amount * convToRate).toLocaleString();
+  } else {
+    // formula - (convert_to / new_base_curr) * amount = result
+    const newBase = rateObjects[baseCurr].rate;
+    result = Math.round((convToRate / newBase) * amount);
   }
-  convertedAmountElem.innerText = `$${result}`;
+  convertedAmountElem.innerText = `$${result.toLocaleString()}`;
 }
 
 const convertBtn = document.querySelector("button");
-convertBtn.addEventListener("click", handleConvert);
+convertBtn.addEventListener("click", handleConversion);

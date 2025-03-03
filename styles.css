@@ -64,8 +64,11 @@ select {
 
 input {
   margin-top: 0.3rem;
-  display: block;
-  margin-inline: auto;
+  display: inline-block;
+}
+
+#select-amt {
+  width: 100px;
 }
 
 .right-col p:last-child {
