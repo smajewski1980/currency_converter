@@ -1,3 +1,4 @@
+// this makes an object for each country
 class Rate {
   constructor(code, name, symbol, namePlural, rate) {
     this.code = code;
@@ -8,6 +9,7 @@ class Rate {
   }
 }
 
+// the info minus the rates, referenced to construct rate objects
 let countryInfo = {
   EUR: {
     code: "EUR",
@@ -88,22 +90,26 @@ const options = {
   },
 };
 
-async function getExchangeRates(endpoint) {
+async function getExchangeRates() {
   const BASE_URL = "https://api.freecurrencyapi.com/v1/";
-  const URL = `${BASE_URL}${endpoint}`;
+  const URL = `${BASE_URL}latest`;
   const response = await fetch(URL, options);
   const result = await response.text();
   const data = await JSON.parse(result);
   return data.data;
 }
 
+// fetch and store latest rates info
 async function setData() {
   const rates = {};
   const now = Date.now();
   const lastCheckedDay = localStorage.getItem("lastCheckedDay");
 
+  // if rate data doesn't exist, or is from yesterday or before 5pm today
+  // then we get or update the data and store in local storage
   if (
-    !lastCheckedDay ||
+    (lastCheckedDay < new Date().getDay() &&
+      localStorage.getItem("lastCheckedHour") < 17) ||
     (new Date().getHours() > 17 &&
       localStorage.getItem("lastCheckedHour") < 17) ||
     !localStorage.getItem("currency_data")
@@ -111,7 +117,7 @@ async function setData() {
     localStorage.setItem("lastCheckedDay", new Date().getDay());
     localStorage.setItem("lastCheckedHour", new Date().getHours());
 
-    let currentRates = await getExchangeRates("latest");
+    let currentRates = await getExchangeRates();
 
     for (const rate in countryInfo) {
       switch (countryInfo[rate].code) {
@@ -215,10 +221,12 @@ async function setData() {
 
 setData();
 
+// get data from local storage and convert back to JSON
 const rateObjectsRaw = localStorage.getItem("currency_data");
 const rateObjects = JSON.parse(rateObjectsRaw);
 console.log(rateObjects);
 
+// adds the symbols to the name in the select list options
 const selectListOptions = document.querySelectorAll("option");
 selectListOptions.forEach((option) => {
   const value = option.value;
@@ -228,44 +236,55 @@ selectListOptions.forEach((option) => {
   option.innerText = text + " - " + symbol;
 });
 
-function handleSelect(e) {
+// adds the flag for the appropriate selection
+function handleFlagSelect(e) {
+  const imageElems = document.querySelectorAll("img");
+  const leftColImg = imageElems[0];
+  const rightColImg = imageElems[1];
   const country = countryInfo[e.target.value];
+  function handleFlags(elem, country) {
+    if (!country) {
+      elem.src = "";
+      elem.alt = "";
+    } else {
+      elem.src = country.image;
+      elem.alt = `${country.name} Flag`;
+    }
+  }
 
   if (e.target.parentElement.classList.contains("left-col")) {
-    const leftColImg = document.querySelector(".left-col img");
-    if (!country) {
-      leftColImg.src = "";
-      leftColImg.alt = "";
-    } else {
-      leftColImg.src = country.image;
-      leftColImg.alt = `${country.name} Flag`;
-    }
+    handleFlags(leftColImg, country);
   } else {
-    const rightColImg = document.querySelector(".right-col img");
-    if (!country) {
-      rightColImg.src = "";
-      rightColImg.alt = "";
-    } else {
-      rightColImg.src = country.image;
-      rightColImg.alt = `${country.name} Flag`;
-    }
+    handleFlags(rightColImg, country);
   }
 }
 
-const imageElems = document.querySelectorAll("img");
 const selectLists = document.querySelectorAll("select");
 selectLists.forEach((select) => {
-  select.addEventListener("change", handleSelect);
+  select.addEventListener("change", handleFlagSelect);
 });
 
-const amountToConvInput = document.querySelector("#select-amt");
-const convertedAmountElem = document.querySelector(".converted");
 function handleConvert() {
   const baseCurr = selectLists[0].value;
+  const amountToConvInput = document.querySelector("#select-amt");
   const convToCurr = selectLists[1].value;
-  const amount = parseInt(amountToConvInput.value);
-  const rate = rateObjects[convToCurr].rate;
-  const result = Math.round(amount * rate).toLocaleString();
+  const convertedAmountElem = document.querySelector(".converted");
+
+  let inputVal = amountToConvInput.value;
+  let amount = 0;
+
+  // for now, strip the dollar sign off
+  if (isNaN(parseInt(inputVal))) {
+    console.log(inputVal.slice(1, -1));
+    amount = parseInt(inputVal.slice(1));
+  } else {
+    amount = inputVal;
+  }
+
+  if (baseCurr === "USD") {
+    // const rate = rateObjects[convToCurr].rate;
+    // const result = Math.round(amount * rate).toLocaleString();
+  }
   convertedAmountElem.innerText = `$${result}`;
 }
 
