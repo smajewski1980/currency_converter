@@ -257,3 +257,17 @@ const selectLists = document.querySelectorAll("select");
 selectLists.forEach((select) => {
   select.addEventListener("change", handleSelect);
 });
+
+const amountToConvInput = document.querySelector("#select-amt");
+const convertedAmountElem = document.querySelector(".converted");
+function handleConvert() {
+  const baseCurr = selectLists[0].value;
+  const convToCurr = selectLists[1].value;
+  const amount = parseInt(amountToConvInput.value);
+  const rate = rateObjects[convToCurr].rate;
+  const result = Math.round(amount * rate).toLocaleString();
+  convertedAmountElem.innerText = `$${result}`;
+}
+
+const convertBtn = document.querySelector("button");
+convertBtn.addEventListener("click", handleConvert);

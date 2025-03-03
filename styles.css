@@ -40,8 +40,9 @@ main > * {
 
 .left-col,
 .right-col {
-  padding-block: 0.5rem 3.75rem;
+  padding-block: 0.5rem 1rem;
   outline: 1px solid grey;
+  background-color: rgb(240, 240, 240);
 }
 
 .img-wrapper {
@@ -50,10 +51,30 @@ main > * {
   margin-inline: auto;
   display: grid;
   place-content: center;
-  background-color: rgb(230, 230, 230);
   margin-block: 0.5rem;
 }
 
 img {
   width: 50px;
+}
+
+select {
+  margin-block: 0.3rem 0.5rem;
+}
+
+input {
+  margin-top: 0.3rem;
+  display: block;
+  margin-inline: auto;
+}
+
+.right-col p:last-child {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+button {
+  width: 100px;
+  margin-top: 1rem;
+  padding: 0.3rem 0rem;
 }
