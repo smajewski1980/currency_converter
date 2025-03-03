@@ -30,6 +30,7 @@ main {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 main > * {
@@ -39,14 +40,20 @@ main > * {
 
 .left-col,
 .right-col {
-  padding-block: 0.5rem 4.75rem;
-  outline: 3px solid grey;
+  padding-block: 0.5rem 3.75rem;
+  outline: 1px solid grey;
 }
 
 .img-wrapper {
   min-height: 4.25rem;
-  width: 50px;
+  width: 100px;
   margin-inline: auto;
   display: grid;
   place-content: center;
+  background-color: rgb(230, 230, 230);
+  margin-block: 0.5rem;
+}
+
+img {
+  width: 50px;
 }

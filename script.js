@@ -222,6 +222,7 @@ console.log(rateObjects);
 const selectListOptions = document.querySelectorAll("option");
 selectListOptions.forEach((option) => {
   const value = option.value;
+  if (!value) return;
   const text = option.innerText;
   const symbol = countryInfo[value].symbol;
   option.innerText = text + " - " + symbol;
@@ -232,12 +233,22 @@ function handleSelect(e) {
 
   if (e.target.parentElement.classList.contains("left-col")) {
     const leftColImg = document.querySelector(".left-col img");
-    leftColImg.src = country.image;
-    leftColImg.alt = `${country.name} Flag`;
+    if (!country) {
+      leftColImg.src = "";
+      leftColImg.alt = "";
+    } else {
+      leftColImg.src = country.image;
+      leftColImg.alt = `${country.name} Flag`;
+    }
   } else {
     const rightColImg = document.querySelector(".right-col img");
-    rightColImg.src = country.image;
-    rightColImg.alt = `${country.name} Flag`;
+    if (!country) {
+      rightColImg.src = "";
+      rightColImg.alt = "";
+    } else {
+      rightColImg.src = country.image;
+      rightColImg.alt = `${country.name} Flag`;
+    }
   }
 }
 
