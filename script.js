@@ -242,6 +242,8 @@ function handleFlagSelect(e) {
   const leftColImg = imageElems[0];
   const rightColImg = imageElems[1];
   const country = countryInfo[e.target.value];
+  const currSymbSpan1 = document.querySelector(".currencySymb1");
+  const currSymbSpan2 = document.querySelector(".currencySymb2");
   function handleFlags(elem, country) {
     if (!country) {
       elem.src = "";
@@ -252,10 +254,20 @@ function handleFlagSelect(e) {
     }
   }
 
+  function handleCurrencySymb(elem) {
+    if (!country) {
+      elem.innerText = "";
+    } else {
+      elem.innerText = country.symbol;
+    }
+  }
+
   if (e.target.parentElement.classList.contains("left-col")) {
     handleFlags(leftColImg, country);
+    handleCurrencySymb(currSymbSpan1);
   } else {
     handleFlags(rightColImg, country);
+    handleCurrencySymb(currSymbSpan2);
   }
 }
 
@@ -272,6 +284,7 @@ function handleConversion() {
 
   let amount = amountToConvInput.value;
   const convToRate = rateObjects[convToCurr].rate;
+  const convToSymb = rateObjects[convToCurr].symbol;
   let result;
   if (baseCurr === "USD") {
     result = Math.round(amount * convToRate).toLocaleString();
@@ -280,7 +293,8 @@ function handleConversion() {
     const newBase = rateObjects[baseCurr].rate;
     result = Math.round((convToRate / newBase) * amount);
   }
-  convertedAmountElem.innerText = `$${result.toLocaleString()}`;
+  // convertedAmountElem.innerText = `$${result.toLocaleString()}`;
+  convertedAmountElem.innerText = `${convToSymb} ${result}`;
 }
 
 const convertBtn = document.querySelector("button");

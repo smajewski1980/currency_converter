@@ -69,9 +69,26 @@ input {
 
 #select-amt {
   width: 100px;
+  border: none;
+  font-size: 1.75rem;
+  /* font-weight: 600; */
+  background-color: transparent;
+  text-align: center;
 }
 
-.right-col p:last-child {
+#select-amt:focus {
+  outline: none;
+}
+
+span {
+  background-color: rgb(218, 217, 217);
+}
+.currencySymb1 {
+  font-size: 1rem;
+}
+
+.right-col p:last-child,
+span {
   font-size: 2rem;
   font-weight: 700;
 }

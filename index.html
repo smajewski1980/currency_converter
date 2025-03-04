@@ -30,10 +30,12 @@
         ><br />
         <label for="select-amt">enter the amount to convert</label><br />
         <span
-          >$&nbsp;<input
+          ><span class="currencySymb1"></span
+          ><input
             type="text"
             name="select-amt"
             id="select-amt"
+            autocomplete="off"
           />&nbsp;&nbsp;&nbsp;</span
         ><br />
         <button>CONVERT</button>
@@ -56,7 +58,7 @@
           <option value="GBP">British Pound Sterling</option>
           <option value="AUD">Australian Dollar</option>
         </select>
-        <p class="converted">&nbsp;</p>
+        <p class="converted"><span class="currencySymb2"></span>&nbsp;</p>
       </div>
     </main>
   </body>
