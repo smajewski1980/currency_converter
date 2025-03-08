@@ -135,7 +135,7 @@ button {
 }
 
 .base-slider {
-  --left-dist: 0rem;
+  --left-dist: -0rem;
   position: absolute;
   left: var(--left-dist);
   display: flex;
@@ -158,6 +158,6 @@ button {
   align-self: center;
 }
 
-.base-slide:nth-child(3) img {
+.base-slide:nth-child(4) img {
   width: 30%;
 }

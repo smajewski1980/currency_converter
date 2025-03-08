@@ -17,6 +17,7 @@ let countryInfo = {
     symbol: "€",
     namePlural: "Euros",
     image: "./assets/euro_flag.png",
+    sliderPos: "-70rem",
   },
   USD: {
     code: "USD",
@@ -24,6 +25,7 @@ let countryInfo = {
     symbol: "$",
     namePlural: "US dollars",
     image: "./assets/us_flag.png",
+    sliderPos: "-10rem",
   },
   JPY: {
     code: "JPY",
@@ -31,6 +33,7 @@ let countryInfo = {
     symbol: "¥",
     namePlural: "Japanese yen",
     image: "./assets/japan_flag.png",
+    sliderPos: "-60rem",
   },
   GBP: {
     code: "GBP",
@@ -38,6 +41,7 @@ let countryInfo = {
     symbol: "£",
     namePlural: "British pounds sterling",
     image: "./assets/british_flag.png",
+    sliderPos: "-90rem",
   },
   PLN: {
     code: "PLN",
@@ -45,6 +49,7 @@ let countryInfo = {
     symbol: "zł",
     namePlural: "Polish zlotys",
     image: "./assets/poland_flag.png",
+    sliderPos: "-40rem",
   },
   CHF: {
     code: "CHF",
@@ -52,6 +57,7 @@ let countryInfo = {
     symbol: "CHF",
     namePlural: "Swiss francs",
     image: "./assets/switzerland_flag.png",
+    sliderPos: "-30rem",
   },
   TRY: {
     code: "TRY",
@@ -59,6 +65,7 @@ let countryInfo = {
     symbol: "TL",
     namePlural: "Turkish Lira",
     image: "./assets/turkey_flag.png",
+    sliderPos: "-20rem",
   },
   AUD: {
     code: "AUD",
@@ -66,6 +73,7 @@ let countryInfo = {
     symbol: "AU$",
     namePlural: "Australian dollars",
     image: "./assets/australia_flag.png",
+    sliderPos: "-100rem",
   },
   CAD: {
     code: "CAD",
@@ -73,6 +81,7 @@ let countryInfo = {
     symbol: "CA$",
     namePlural: "Canadian dollars",
     image: "./assets/canada_flag.png",
+    sliderPos: "-80rem",
   },
   MXN: {
     code: "MXN",
@@ -80,6 +89,7 @@ let countryInfo = {
     symbol: "MX$",
     namePlural: "Mexican pesos",
     image: "./assets/mexico_flag.png",
+    sliderPos: "-50rem",
   },
 };
 
@@ -238,19 +248,18 @@ selectListOptions.forEach((option) => {
 
 // adds the flag for the appropriate selection
 function handleFlagSelect(e) {
-  const imageElems = document.querySelectorAll("img");
-  const leftColImg = imageElems[0];
-  const rightColImg = imageElems[1];
+  // const imageElems = document.querySelectorAll("img");
+  // const leftColImg = imageElems[0];
+  // const rightColImg = imageElems[1];
   const country = countryInfo[e.target.value];
   const currSymbSpan1 = document.querySelector(".currencySymb1");
   const currSymbSpan2 = document.querySelector(".currencySymb2");
-  function handleFlags(elem, country) {
+  const baseSlider = document.querySelector(".base-slider");
+  function handleFlags(country) {
     if (!country) {
-      elem.src = "";
-      elem.alt = "";
+      baseSlider.style.setProperty("--left-dist", "0rem");
     } else {
-      elem.src = country.image;
-      elem.alt = `${country.name} Flag`;
+      baseSlider.style.setProperty("--left-dist", `${country.sliderPos}`);
     }
   }
 
@@ -263,10 +272,11 @@ function handleFlagSelect(e) {
   }
 
   if (e.target.parentElement.classList.contains("left-col")) {
-    handleFlags(leftColImg, country);
+    // handleFlags(leftColImg, country);
+    handleFlags(country);
     handleCurrencySymb(currSymbSpan1);
   } else {
-    handleFlags(rightColImg, country);
+    // handleFlags(rightColImg, country);
     handleCurrencySymb(currSymbSpan2);
   }
 }
