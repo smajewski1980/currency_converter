@@ -19,11 +19,16 @@ body {
   display: grid;
   place-content: center;
   min-height: 100vh;
+  background-image: url("./assets/old-world-map-wallpaper-1280x800.jpg");
+  background-color: rgba(107, 84, 49, 0.877);
+  background-blend-mode: lighten;
+  background-size: cover;
 }
 
 h1 {
-  margin-bottom: 1rem;
+  margin-block: 0.5rem 1rem;
   text-align: center;
+  color: rgb(250, 239, 188);
 }
 
 main {
@@ -41,8 +46,8 @@ main > * {
 .left-col,
 .right-col {
   padding-block: 0.5rem 1rem;
-  outline: 1px solid grey;
-  background-color: rgb(240, 240, 240);
+  /* outline: 1px solid grey; */
+  /* background-color: rgba(240, 240, 240, 0.247); */
 }
 
 .img-wrapper {
