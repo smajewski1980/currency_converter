@@ -248,18 +248,16 @@ selectListOptions.forEach((option) => {
 
 // adds the flag for the appropriate selection
 function handleFlagSelect(e) {
-  // const imageElems = document.querySelectorAll("img");
-  // const leftColImg = imageElems[0];
-  // const rightColImg = imageElems[1];
   const country = countryInfo[e.target.value];
   const currSymbSpan1 = document.querySelector(".currencySymb1");
   const currSymbSpan2 = document.querySelector(".currencySymb2");
   const baseSlider = document.querySelector(".base-slider");
-  function handleFlags(country) {
+  const convSlider = document.querySelector(".conv-slider");
+  function handleFlags(country, slider) {
     if (!country) {
-      baseSlider.style.setProperty("--left-dist", "0rem");
+      slider.style.setProperty("--left-dist", "0rem");
     } else {
-      baseSlider.style.setProperty("--left-dist", `${country.sliderPos}`);
+      slider.style.setProperty("--left-dist", `${country.sliderPos}`);
     }
   }
 
@@ -271,12 +269,11 @@ function handleFlagSelect(e) {
     }
   }
 
-  if (e.target.parentElement.classList.contains("left-col")) {
-    // handleFlags(leftColImg, country);
-    handleFlags(country);
+  if (e.target.id === "select-base") {
+    handleFlags(country, baseSlider);
     handleCurrencySymb(currSymbSpan1);
   } else {
-    // handleFlags(rightColImg, country);
+    handleFlags(country, convSlider);
     handleCurrencySymb(currSymbSpan2);
   }
 }

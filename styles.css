@@ -31,37 +31,12 @@ h1 {
   color: rgb(250, 239, 188);
 }
 
-main {
+/* main {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-main > * {
-  flex-basis: 300px;
-  text-align: center;
-}
-
-.left-col,
-.right-col {
-  padding-block: 0.5rem 1rem;
-  /* outline: 1px solid grey; */
-  /* background-color: rgba(240, 240, 240, 0.247); */
-}
-
-.img-wrapper {
-  min-height: 4.25rem;
-  width: 100px;
-  margin-inline: auto;
-  display: grid;
-  place-content: center;
-  margin-block: 0.5rem;
-}
-
-img {
-  width: 50px;
-}
+} */
 
 select {
   margin-block: 0.3rem 0.5rem;
@@ -104,10 +79,10 @@ button {
   padding: 0.3rem 0rem;
 }
 
-.base-window {
+.base-window,
+.conv-window {
   width: 10rem;
   height: 4rem;
-  outline: 1px solid rgb(82, 82, 82);
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -115,7 +90,8 @@ button {
   margin-inline: auto;
 }
 
-.base-window:before {
+.base-window:before,
+.conv-window:before {
   content: "";
   background-image: url("./assets/slider_vingette.png");
   position: absolute;
@@ -124,7 +100,8 @@ button {
   opacity: 0.7;
 }
 
-.base-window:after {
+.base-window:after,
+.conv-window:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -136,6 +113,14 @@ button {
 
 .base-slider {
   --left-dist: -0rem;
+}
+
+.conv-slider {
+  --left-dist: -0rem;
+}
+
+.base-slider,
+.conv-slider {
   position: absolute;
   left: var(--left-dist);
   display: flex;
@@ -146,20 +131,23 @@ button {
   background-blend-mode: screen;
 }
 
-.base-slide {
+.base-slide,
+.conv-slide {
   width: 10rem;
   height: 100%;
   display: flex;
   place-content: center;
 }
 
-.base-slide img {
+.base-slide img,
+.conv-slide img {
   width: 40%;
   align-self: center;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.658);
   filter: brightness(0.9);
 }
 
-.base-slide:nth-child(4) img {
+.base-slide:nth-child(4) img,
+.conv-slide:nth-child(4) img {
   width: 30%;
 }

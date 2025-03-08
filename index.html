@@ -10,91 +10,118 @@
   <body>
     <h1>The Change Changer</h1>
     <main>
-      <div class="left-col">
-        <!-- <div class="img-wrapper">
-          <img src="" alt="" />
-        </div> -->
-        <div class="base-window">
-          <div class="base-slider">
-            <div class="base-slide"></div>
-            <div class="base-slide">
-              <img src="./assets/us_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/turkey_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/switzerland_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/poland_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/mexico_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/japan_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/euro_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/canada_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/british_flag.png" alt="" />
-            </div>
-            <div class="base-slide">
-              <img src="./assets/australia_flag.png" alt="" />
-            </div>
+      <div class="base-window">
+        <div class="base-slider">
+          <div class="base-slide"></div>
+          <div class="base-slide">
+            <img src="./assets/us_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/turkey_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/switzerland_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/poland_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/mexico_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/japan_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/euro_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/canada_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/british_flag.png" alt="" />
+          </div>
+          <div class="base-slide">
+            <img src="./assets/australia_flag.png" alt="" />
           </div>
         </div>
-        <p>select your base currency</p>
-        <select name="select-curr" id="select-curr">
-          <option value=""></option>
-          <option value="USD">US Dollar</option>
-          <option value="TRY">Turkish Lira</option>
-          <option value="CHF">Swiss Franc</option>
-          <option value="PLN">Polish Zloty</option>
-          <option value="MXN">Mexican Peso</option>
-          <option value="JPY">Japanese Yen</option>
-          <option value="EUR">Euro</option>
-          <option value="CAD">Canadian Dollar</option>
-          <option value="GBP">British Pound Sterling</option>
-          <option value="AUD">Australian Dollar</option></select
-        ><br />
-        <label for="select-amt">enter the amount to convert</label><br />
-        <span
-          ><span class="currencySymb1"></span
-          ><input
-            type="text"
-            name="select-amt"
-            id="select-amt"
-            autocomplete="off"
-          />&nbsp;&nbsp;&nbsp;</span
-        ><br />
-        <button>CONVERT</button>
       </div>
-      <div class="right-col">
-        <div class="img-wrapper">
-          <img src="" alt="" />
+      <p>select your base currency</p>
+      <select name="select-base" id="select-base">
+        <option value=""></option>
+        <option value="USD">US Dollar</option>
+        <option value="TRY">Turkish Lira</option>
+        <option value="CHF">Swiss Franc</option>
+        <option value="PLN">Polish Zloty</option>
+        <option value="MXN">Mexican Peso</option>
+        <option value="JPY">Japanese Yen</option>
+        <option value="EUR">Euro</option>
+        <option value="CAD">Canadian Dollar</option>
+        <option value="GBP">British Pound Sterling</option>
+        <option value="AUD">Australian Dollar</option></select
+      ><br />
+      <label for="select-amt">enter the amount to convert</label><br />
+      <span
+        ><span class="currencySymb1"></span
+        ><input
+          type="text"
+          name="select-amt"
+          id="select-amt"
+          autocomplete="off"
+        />&nbsp;&nbsp;&nbsp;</span
+      ><br />
+      <button>CONVERT</button>
+
+      <!-- this is where we put the other flag window -->
+      <div class="conv-window">
+        <div class="conv-slider">
+          <div class="conv-slide"></div>
+          <div class="conv-slide">
+            <img src="./assets/us_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/turkey_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/switzerland_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/poland_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/mexico_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/japan_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/euro_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/canada_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/british_flag.png" alt="" />
+          </div>
+          <div class="conv-slide">
+            <img src="./assets/australia_flag.png" alt="" />
+          </div>
         </div>
-        <p>currency to convert to</p>
-        <select name="select-conv" id="select-conv">
-          <option value=""></option>
-          <option value="USD">US Dollar</option>
-          <option value="TRY">Turkish Lira</option>
-          <option value="CHF">Swiss Franc</option>
-          <option value="PLN">Polish Zloty</option>
-          <option value="MXN">Mexican Peso</option>
-          <option value="JPY">Japanese Yen</option>
-          <option value="EUR">Euro</option>
-          <option value="CAD">Canadian Dollar</option>
-          <option value="GBP">British Pound Sterling</option>
-          <option value="AUD">Australian Dollar</option>
-        </select>
-        <p class="converted"><span class="currencySymb2"></span>&nbsp;</p>
       </div>
+      <p>currency to convert to</p>
+      <select name="select-conv" id="select-conv">
+        <option value=""></option>
+        <option value="USD">US Dollar</option>
+        <option value="TRY">Turkish Lira</option>
+        <option value="CHF">Swiss Franc</option>
+        <option value="PLN">Polish Zloty</option>
+        <option value="MXN">Mexican Peso</option>
+        <option value="JPY">Japanese Yen</option>
+        <option value="EUR">Euro</option>
+        <option value="CAD">Canadian Dollar</option>
+        <option value="GBP">British Pound Sterling</option>
+        <option value="AUD">Australian Dollar</option>
+      </select>
+      <p class="converted"><span class="currencySymb2"></span>&nbsp;</p>
     </main>
   </body>
 </html>
