@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>The Change Changer</h1>
     <main>
+      <h1>The Change Changer</h1>
       <div class="base-window">
         <div class="base-slider">
           <div class="base-slide"></div>
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <p>select your base currency</p>
+      <p>select base currency</p>
       <select name="select-base" id="select-base">
         <option value=""></option>
         <option value="USD">US Dollar</option>
@@ -59,7 +59,8 @@
         <option value="GBP">British Pound Sterling</option>
         <option value="AUD">Australian Dollar</option></select
       ><br />
-      <label for="select-amt">enter the amount to convert</label><br />
+      <p for="select-amt">amount to convert</p>
+      <br />
       <span
         ><span class="currencySymb1"></span
         ><input
@@ -69,7 +70,6 @@
           autocomplete="off"
         />&nbsp;&nbsp;&nbsp;</span
       ><br />
-      <button>CONVERT</button>
 
       <!-- this is where we put the other flag window -->
       <div class="conv-window">
@@ -122,6 +122,7 @@
         <option value="AUD">Australian Dollar</option>
       </select>
       <p class="converted"><span class="currencySymb2"></span>&nbsp;</p>
+      <button>CONVERT</button>
     </main>
   </body>
 </html>
