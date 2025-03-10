@@ -283,13 +283,22 @@ selectLists.forEach((select) => {
   select.addEventListener("change", handleFlagSelect);
 });
 
+const amountToConvInput = document.querySelector("#select-amt");
+amountToConvInput.addEventListener("input", (e) => {
+  if (e.target.value.length) {
+    let val = e.target.value;
+    let newVal = val.split(",");
+    let newerVal = newVal.join("");
+
+    e.target.value = parseInt(newerVal).toLocaleString();
+  }
+});
 function handleConversion() {
   const baseCurr = selectLists[0].value;
-  const amountToConvInput = document.querySelector("#select-amt");
   const convToCurr = selectLists[1].value;
   const convertedAmountElem = document.querySelector(".converted");
-
-  let amount = amountToConvInput.value;
+  let tempAmt = amountToConvInput.value.replace(",", "");
+  let amount = parseInt(tempAmt);
   const convToRate = rateObjects[convToCurr].rate;
   const convToSymb = rateObjects[convToCurr].symbol;
   let result;
@@ -298,7 +307,7 @@ function handleConversion() {
   } else {
     // formula - (convert_to / new_base_curr) * amount = result
     const newBase = rateObjects[baseCurr].rate;
-    result = Math.round((convToRate / newBase) * amount);
+    result = Math.round((convToRate / newBase) * amount).toLocaleString();
   }
   // convertedAmountElem.innerText = `$${result.toLocaleString()}`;
   convertedAmountElem.innerText = `${convToSymb} ${result}`;
