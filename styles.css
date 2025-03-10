@@ -18,8 +18,10 @@
 }
 
 :root {
-  --clr-font: rgb(253, 234, 173);
-  --input-bg: rgba(255, 255, 255, 0.3);
+  --clr-font: rgb(253, 235, 175);
+  --clr-font-secondary: rgb(250, 205, 56);
+  --input-bg: rgba(82, 82, 82, 0.212);
+  --input-bg-alt: rgba(82, 82, 82, 0.4);
 }
 
 img {
@@ -60,8 +62,9 @@ main {
 select {
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.788);
   background-color: var(--input-bg);
+  border-radius: 5px;
   display: block;
-  margin-top: 0.3rem;
+  margin-block: 0.3rem;
   /* margin-bottom: 0; */
   margin-inline: auto;
   width: 17rem;
@@ -69,11 +72,13 @@ select {
   font-size: 1.125rem;
   font-family: "Quantico";
   padding: 0.25rem 0.5rem;
-  color: var(--clr-font);
+  color: var(--clr-font-secondary);
+  text-shadow: 0px 2px black;
+  /* filter: drop-shadow(0px 2px black); */
 }
 
 option {
-  background-color: rgb(139, 123, 103);
+  background-color: rgb(133, 103, 67);
 }
 
 p {
@@ -87,34 +92,63 @@ p {
 
 #select-amt {
   border-radius: 5px;
+  color: var(--clr-font-secondary);
   display: block;
-  width: 150px;
+  width: 200px;
   margin-inline: auto;
-  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
   border: none;
   font: inherit;
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding-block: 0.25rem;
-  background-color: var(--input-bg);
+  font-family: "Quantico";
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: none;
   text-align: center;
+  text-shadow: 0px 2px black;
+  /* backdrop-filter: blur(5px); */
 }
 
-/* #select-amt:focus {
-  outline: none;
-} */
-
-/* span {
-  background-color: rgb(218, 217, 217);
+#select-amt:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--clr-font);
 }
-.currencySymb1 {
-  font-size: 1rem;
-} */
+
+#select-amt::placeholder {
+  color: var(--clr-font-secondary);
+}
+
+.converted {
+  color: var(--clr-font-secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-block: 0.75rem;
+}
 
 button {
-  width: 100px;
-  margin-top: 1rem;
-  padding: 0.3rem 0rem;
+  cursor: pointer;
+  border: none;
+  width: 10rem;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+  padding-block: 1rem;
+  border-radius: 100vw;
+  background: none;
+  backdrop-filter: blur(5px);
+  outline: 2px solid var(--clr-font);
+  font-size: 1.5rem;
+  font-family: "Quantico";
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--clr-font);
+  transition: all 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+  color: var(--clr-font-secondary);
+  outline: 2px solid var(--clr-font-secondary);
+  background-color: rgba(250, 205, 56, 0.1);
 }
 
 .base-window,
