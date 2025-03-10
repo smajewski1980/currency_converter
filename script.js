@@ -297,6 +297,7 @@ function handleConversion() {
   const baseCurr = selectLists[0].value;
   const convToCurr = selectLists[1].value;
   const convertedAmountElem = document.querySelector(".converted");
+  const convSymbolSpan = document.querySelector(".currencySymb2");
   let tempAmt = amountToConvInput.value.replaceAll(",", "");
   console.log(tempAmt);
   let amount = parseInt(tempAmt);
@@ -312,8 +313,7 @@ function handleConversion() {
     result = Math.round((convToRate / newBase) * amount).toLocaleString();
     console.log(result);
   }
-  // convertedAmountElem.innerText = `$${result.toLocaleString()}`;
-  convertedAmountElem.innerText = `${convToSymb} ${result}`;
+  convertedAmountElem.innerHTML = `<span class="currencySymb2">${convToSymb}</span>&nbsp;${result}`;
 }
 
 const convertBtn = document.querySelector("button");

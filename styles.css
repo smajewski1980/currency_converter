@@ -1,14 +1,13 @@
 @font-face {
   font-family: "Quantico";
-  src: url("./assets/font/Quantico-Regular.ttf");
   font-weight: 400;
+  src: url("./assets/font/Quantico-Regular.ttf");
 }
 @font-face {
   font-family: "Quantico";
-  src: url("./assets/font/Quantico-Bold.ttf");
   font-weight: 700;
+  src: url("./assets/font/Quantico-Bold.ttf");
 }
-
 *,
 *::after,
 *::before {
@@ -16,210 +15,192 @@
   margin: 0;
   padding: 0;
 }
-
 :root {
   --clr-font: rgb(253, 235, 175);
   --clr-font-secondary: rgb(250, 205, 56);
   --input-bg: rgba(82, 82, 82, 0.212);
   --input-bg-alt: rgba(82, 82, 82, 0.4);
 }
-
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
-
 button {
   font: inherit;
 }
-
 body {
-  display: grid;
-  place-content: center;
-  min-height: 100vh;
-  background-image: url("./assets/old-world-map-wallpaper-1280x800.jpg");
-  background-color: rgba(107, 84, 49, 0.877);
   background-blend-mode: lighten;
+  background-color: rgba(107, 84, 49, 0.877);
+  background-image: url("./assets/old-world-map-wallpaper-1280x800.jpg");
   background-size: cover;
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
 }
-
 h1 {
+  color: var(--clr-font);
+  filter: drop-shadow(0px 2px black);
+  font-family: "Quantico";
+  letter-spacing: 1px;
   margin-block: 0.5rem;
   text-align: center;
-  color: var(--clr-font);
-  font-family: "Quantico";
-  filter: drop-shadow(0px 2px black);
-  letter-spacing: 1px;
 }
-
 main {
-  background-color: rgba(0, 0, 0, 0.15);
-  padding-inline: 1.5rem;
-  border-radius: 15px;
   backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding-inline: 1.5rem;
 }
-
 select {
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.788);
   background-color: var(--input-bg);
   border-radius: 5px;
-  display: block;
-  margin-block: 0.3rem;
-  /* margin-bottom: 0; */
-  margin-inline: auto;
-  width: 17rem;
-  text-align: center;
-  font-size: 1.125rem;
-  font-family: "Quantico";
-  padding: 0.25rem 0.5rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.788);
   color: var(--clr-font-secondary);
+  display: block;
+  font-family: "Quantico";
+  font-size: 1.125rem;
+  margin-block: 0.3rem;
+  margin-inline: auto;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
   text-shadow: 0px 2px black;
+  width: 17rem;
+
+  /* margin-bottom: 0; */
   /* filter: drop-shadow(0px 2px black); */
 }
-
 option {
   background-color: rgb(133, 103, 67);
 }
-
 p {
-  font-family: "Quantico";
-  font-weight: 400;
-  font-size: 1.5rem;
-  text-align: center;
   color: var(--clr-font);
   filter: drop-shadow(0px 2px black);
+  font-family: "Quantico";
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
 }
-
 #select-amt {
+  background: none;
+  border: none;
   border-radius: 5px;
   color: var(--clr-font-secondary);
   display: block;
-  width: 325px;
-  margin-inline: auto;
-  margin-bottom: 0.5rem;
-  border: none;
   font: inherit;
   font-family: "Quantico";
   font-size: 2.5rem;
   font-weight: 700;
-  background: none;
+  margin-bottom: 0.5rem;
+  margin-inline: auto;
   text-align: center;
   text-shadow: 0px 2px black;
+  width: 325px;
+
   /* backdrop-filter: blur(5px); */
 }
-
 #select-amt:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--clr-font);
 }
-
 #select-amt::placeholder {
   color: var(--clr-font-secondary);
 }
-
 .converted {
   color: var(--clr-font-secondary);
   font-size: 2.5rem;
   font-weight: 700;
   margin-block: 0.75rem;
 }
-
-button {
-  cursor: pointer;
-  border: none;
-  width: 10rem;
-  margin-inline: auto;
-  margin-bottom: 1.5rem;
-  display: block;
-  padding-block: 1rem;
-  border-radius: 100vw;
-  background: none;
-  backdrop-filter: blur(5px);
-  outline: 2px solid var(--clr-font);
+.currencySymb2 {
   font-size: 1.5rem;
-  font-family: "Quantico";
-  letter-spacing: 1px;
-  font-weight: 700;
-  color: var(--clr-font);
-  transition: all 0.2s ease;
 }
-
+button {
+  backdrop-filter: blur(5px);
+  background: none;
+  border: none;
+  border-radius: 100vw;
+  color: var(--clr-font);
+  cursor: pointer;
+  display: block;
+  font-family: "Quantico";
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  margin-inline: auto;
+  outline: 2px solid var(--clr-font);
+  padding-block: 1rem;
+  transition: all 0.2s ease;
+  width: 10rem;
+}
 button:hover,
 button:focus-visible {
+  background-color: rgba(250, 205, 56, 0.1);
   color: var(--clr-font-secondary);
   outline: 2px solid var(--clr-font-secondary);
-  background-color: rgba(250, 205, 56, 0.1);
 }
-
 .base-window,
 .conv-window {
-  width: 10rem;
-  height: 4rem;
   border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 0.3rem;
-  position: relative;
-  margin-inline: auto;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.788);
+  height: 4rem;
+  margin-bottom: 0.3rem;
+  margin-inline: auto;
+  overflow: hidden;
+  position: relative;
+  width: 10rem;
 }
-
 .base-window:before,
 .conv-window:before {
-  content: "";
   background-image: url("./assets/slider_vingette.png");
-  position: absolute;
+  content: "";
   inset: 0;
-  z-index: 99;
   opacity: 0.7;
+  position: absolute;
+  z-index: 99;
 }
-
 .base-window:after,
 .conv-window:after {
   content: "";
-  position: absolute;
   inset: 0;
+  position: absolute;
+
   box-shadow: inset 0px 0px 10px 4px rgba(66, 40, 11, 0.733),
     inset -5px 0px 13px 1px rgba(88, 53, 15, 0.733),
     inset 5px 0px 13px 1px rgba(95, 57, 17, 0.733),
     0px 1px 2px 1px rgba(70, 42, 12, 0.74);
 }
-
 .base-slider {
   --left-dist: -0rem;
 }
-
 .conv-slider {
   --left-dist: -0rem;
 }
-
 .base-slider,
 .conv-slider {
-  position: absolute;
-  left: var(--left-dist);
-  display: flex;
-  height: 100%;
-  transition: left 0.5s ease-in-out;
+  background-blend-mode: screen;
   background-color: rgba(110, 66, 19, 0.733);
   background-image: url("./assets/paper-7233923_640.png");
-  background-blend-mode: screen;
+  display: flex;
+  height: 100%;
+  left: var(--left-dist);
+  position: absolute;
+  transition: left 0.5s ease-in-out;
 }
-
 .base-slide,
 .conv-slide {
-  width: 10rem;
-  height: 100%;
   display: flex;
+  height: 100%;
   place-content: center;
+  width: 10rem;
 }
-
 .base-slide img,
 .conv-slide img {
-  width: 40%;
   align-self: center;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.658);
   filter: brightness(0.9);
+  width: 40%;
 }
-
 .base-slide:nth-child(4) img,
 .conv-slide:nth-child(4) img {
   width: 30%;
