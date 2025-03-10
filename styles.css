@@ -19,6 +19,7 @@
 
 :root {
   --clr-font: rgb(253, 234, 173);
+  --input-bg: rgba(255, 255, 255, 0.3);
 }
 
 img {
@@ -41,16 +42,15 @@ body {
 }
 
 h1 {
-  margin-block: 0.5rem 1rem;
+  margin-block: 0.5rem;
   text-align: center;
   color: var(--clr-font);
   font-family: "Quantico";
-  filter: drop-shadow(0px 3px black);
+  filter: drop-shadow(0px 2px black);
   letter-spacing: 1px;
 }
 
 main {
-  display: grid;
   background-color: rgba(0, 0, 0, 0.15);
   padding-inline: 1.5rem;
   border-radius: 15px;
@@ -58,13 +58,22 @@ main {
 }
 
 select {
-  margin-block: 0.3rem 0.5rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.788);
+  background-color: var(--input-bg);
+  display: block;
+  margin-top: 0.3rem;
+  /* margin-bottom: 0; */
   margin-inline: auto;
-  /* width: 15rem; */
+  width: 17rem;
   text-align: center;
   font-size: 1.125rem;
   font-family: "Quantico";
   padding: 0.25rem 0.5rem;
+  color: var(--clr-font);
+}
+
+option {
+  background-color: rgb(139, 123, 103);
 }
 
 p {
@@ -73,27 +82,34 @@ p {
   font-size: 1.5rem;
   text-align: center;
   color: var(--clr-font);
+  filter: drop-shadow(0px 2px black);
 }
 
 #select-amt {
-  width: 100px;
+  border-radius: 5px;
+  display: block;
+  width: 150px;
+  margin-inline: auto;
+  margin-top: 0.3rem;
   border: none;
-  font-size: 1.75rem;
-  /* font-weight: 600; */
-  background-color: transparent;
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-block: 0.25rem;
+  background-color: var(--input-bg);
   text-align: center;
 }
 
-#select-amt:focus {
+/* #select-amt:focus {
   outline: none;
-}
+} */
 
-span {
+/* span {
   background-color: rgb(218, 217, 217);
 }
 .currencySymb1 {
   font-size: 1rem;
-}
+} */
 
 button {
   width: 100px;
@@ -107,7 +123,7 @@ button {
   height: 4rem;
   border-radius: 5px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   position: relative;
   margin-inline: auto;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.788);

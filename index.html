@@ -45,7 +45,9 @@
           </div>
         </div>
       </div>
+
       <p>select base currency</p>
+
       <select name="select-base" id="select-base">
         <option value=""></option>
         <option value="USD">US Dollar</option>
@@ -57,19 +59,17 @@
         <option value="EUR">Euro</option>
         <option value="CAD">Canadian Dollar</option>
         <option value="GBP">British Pound Sterling</option>
-        <option value="AUD">Australian Dollar</option></select
-      ><br />
+        <option value="AUD">Australian Dollar</option>
+      </select>
       <p for="select-amt">amount to convert</p>
-      <br />
-      <span
-        ><span class="currencySymb1"></span
-        ><input
-          type="text"
-          name="select-amt"
-          id="select-amt"
-          autocomplete="off"
-        />&nbsp;&nbsp;&nbsp;</span
-      ><br />
+
+      <input
+        type="text"
+        name="select-amt"
+        id="select-amt"
+        autocomplete="off"
+        value="0"
+      />
 
       <!-- this is where we put the other flag window -->
       <div class="conv-window">

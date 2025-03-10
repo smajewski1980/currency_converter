@@ -249,8 +249,8 @@ selectListOptions.forEach((option) => {
 // adds the flag for the appropriate selection
 function handleFlagSelect(e) {
   const country = countryInfo[e.target.value];
-  const currSymbSpan1 = document.querySelector(".currencySymb1");
-  const currSymbSpan2 = document.querySelector(".currencySymb2");
+  // const currSymbSpan1 = document.querySelector(".currencySymb1");
+  // const currSymbSpan2 = document.querySelector(".currencySymb2");
   const baseSlider = document.querySelector(".base-slider");
   const convSlider = document.querySelector(".conv-slider");
   function handleFlags(country, slider) {
@@ -261,20 +261,20 @@ function handleFlagSelect(e) {
     }
   }
 
-  function handleCurrencySymb(elem) {
-    if (!country) {
-      elem.innerText = "";
-    } else {
-      elem.innerText = country.symbol;
-    }
-  }
+  // function handleCurrencySymb(elem) {
+  //   if (!country) {
+  //     elem.innerText = "";
+  //   } else {
+  //     elem.innerText = country.symbol;
+  //   }
+  // }
 
   if (e.target.id === "select-base") {
     handleFlags(country, baseSlider);
-    handleCurrencySymb(currSymbSpan1);
+    // handleCurrencySymb(currSymbSpan1);
   } else {
     handleFlags(country, convSlider);
-    handleCurrencySymb(currSymbSpan2);
+    // handleCurrencySymb(currSymbSpan2);
   }
 }
 
