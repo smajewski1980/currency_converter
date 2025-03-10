@@ -297,17 +297,20 @@ function handleConversion() {
   const baseCurr = selectLists[0].value;
   const convToCurr = selectLists[1].value;
   const convertedAmountElem = document.querySelector(".converted");
-  let tempAmt = amountToConvInput.value.replace(",", "");
+  let tempAmt = amountToConvInput.value.replaceAll(",", "");
+  console.log(tempAmt);
   let amount = parseInt(tempAmt);
   const convToRate = rateObjects[convToCurr].rate;
   const convToSymb = rateObjects[convToCurr].symbol;
   let result;
+
   if (baseCurr === "USD") {
     result = Math.round(amount * convToRate).toLocaleString();
   } else {
     // formula - (convert_to / new_base_curr) * amount = result
     const newBase = rateObjects[baseCurr].rate;
     result = Math.round((convToRate / newBase) * amount).toLocaleString();
+    console.log(result);
   }
   // convertedAmountElem.innerText = `$${result.toLocaleString()}`;
   convertedAmountElem.innerText = `${convToSymb} ${result}`;
