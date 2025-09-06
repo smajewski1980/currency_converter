@@ -1,3 +1,5 @@
+let rateObjects = {};
+
 // this makes an object for each country
 class Rate {
   constructor(code, name, symbol, namePlural, rate) {
@@ -226,19 +228,22 @@ async function setData() {
       }
     }
     localStorage.setItem('currency_data', JSON.stringify(rates));
+
+    populateRateObjects();
+    return;
   }
+
+  populateRateObjects();
 }
 
 setData();
 
-let rateObjects = {};
 // get data from local storage and convert back to JSON
 async function populateRateObjects() {
   const rateObjectsRaw = localStorage.getItem('currency_data');
   rateObjects = await JSON.parse(rateObjectsRaw);
   console.log(rateObjects);
 }
-populateRateObjects();
 
 // adds the symbols to the name in the select list options
 const selectListOptions = document.querySelectorAll('option');
