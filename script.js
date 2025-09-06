@@ -244,6 +244,9 @@ async function populateRateObjects() {
   rateObjects = await JSON.parse(rateObjectsRaw);
   console.log(rateObjects);
 }
+// originally, i ran the above func here.
+// on deployed version, this was beating the getting of the data on the first
+// page load while local storage was empty, the rateObjects would be null
 
 // adds the symbols to the name in the select list options
 const selectListOptions = document.querySelectorAll('option');
