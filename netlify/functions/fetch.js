@@ -4,7 +4,7 @@ export default async (request, context) => {
   const options = {
     method: 'GET',
     headers: {
-      apikey: process.env.API_KEY,
+      apikey: Netlify.env.get('API_KEY'),
     },
   };
   try {

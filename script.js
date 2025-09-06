@@ -100,6 +100,7 @@ async function getExchangeRates() {
   const response = await fetch(URL);
   const result = await response.text();
   const data = await JSON.parse(result);
+  console.log(data);
   return data.data;
 }
 
@@ -122,6 +123,7 @@ async function setData() {
     localStorage.setItem('lastCheckedHour', new Date().getHours());
 
     let currentRates = await getExchangeRates();
+    console.log(currentRates);
 
     for (const rate in countryInfo) {
       switch (countryInfo[rate].code) {
