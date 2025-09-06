@@ -231,10 +231,14 @@ async function setData() {
 
 setData();
 
+let rateObjects = {};
 // get data from local storage and convert back to JSON
-const rateObjectsRaw = localStorage.getItem('currency_data');
-const rateObjects = JSON.parse(rateObjectsRaw);
-console.log(rateObjects);
+async function populateRateObjects() {
+  const rateObjectsRaw = localStorage.getItem('currency_data');
+  rateObjects = await JSON.parse(rateObjectsRaw);
+  console.log(rateObjects);
+}
+populateRateObjects();
 
 // adds the symbols to the name in the select list options
 const selectListOptions = document.querySelectorAll('option');
