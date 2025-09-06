@@ -1,13 +1,12 @@
 const API_ENDPOINT = 'https://api.freecurrencyapi.com/v1/latest';
 
-const options = {
-  method: 'GET',
-  headers: {
-    apikey: process.env.API_KEY,
-  },
-};
-
 export default async (request, context) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      apikey: process.env.API_KEY,
+    },
+  };
   try {
     const response = await fetch(API_ENDPOINT, options);
     const data = await response.json();
