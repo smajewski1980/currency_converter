@@ -98,7 +98,7 @@ let countryInfo = {
 async function getExchangeRates() {
   const URL =
     'https://resonant-biscuit-cdf86d.netlify.app/.netlify/functions/fetch';
-  const response = await fetch(URL, options);
+  const response = await fetch(URL);
   const result = await response.text();
   const data = await JSON.parse(result);
   return data.data;
