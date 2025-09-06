@@ -96,7 +96,7 @@ let countryInfo = {
 };
 
 async function getExchangeRates() {
-  const URL = '.netlify/functions/fetch';
+  const URL = '/.netlify/functions/fetch';
   const response = await fetch(URL);
   const result = await response.text();
   const data = await JSON.parse(result);
