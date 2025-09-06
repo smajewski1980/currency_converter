@@ -1,5 +1,3 @@
-import fetch from './netlify/functions/fetch';
-
 let rateObjects = {};
 
 // this makes an object for each country
@@ -97,14 +95,14 @@ let countryInfo = {
   },
 };
 
-// async function getExchangeRates() {
-//   const BASE_URL = 'https://api.freecurrencyapi.com/v1/';
-//   const URL = `${BASE_URL}latest`;
-//   const response = await fetch(URL, options);
-//   const result = await response.text();
-//   const data = await JSON.parse(result);
-//   return data.data;
-// }
+async function getExchangeRates() {
+  const URL =
+    'https://resonant-biscuit-cdf86d.netlify.app/.netlify/functions/fetch';
+  const response = await fetch(URL, options);
+  const result = await response.text();
+  const data = await JSON.parse(result);
+  return data.data;
+}
 
 // fetch and store latest rates info
 async function setData() {
@@ -124,8 +122,7 @@ async function setData() {
     localStorage.setItem('lastCheckedDay', new Date().getDay());
     localStorage.setItem('lastCheckedHour', new Date().getHours());
 
-    const response = await fetch();
-    let currentRates = await response.json();
+    let currentRates = await getExchangeRates();
 
     for (const rate in countryInfo) {
       switch (countryInfo[rate].code) {
