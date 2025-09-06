@@ -1,3 +1,5 @@
+import fetch from './netlify/functions/fetch';
+
 let rateObjects = {};
 
 // this makes an object for each country
@@ -95,21 +97,14 @@ let countryInfo = {
   },
 };
 
-const options = {
-  method: 'GET',
-  headers: {
-    apikey: 'fca_live_TuB09qj5pp4FP2CEOarcFKOJ2tC4MI8LE2PyUWux',
-  },
-};
-
-async function getExchangeRates() {
-  const BASE_URL = 'https://api.freecurrencyapi.com/v1/';
-  const URL = `${BASE_URL}latest`;
-  const response = await fetch(URL, options);
-  const result = await response.text();
-  const data = await JSON.parse(result);
-  return data.data;
-}
+// async function getExchangeRates() {
+//   const BASE_URL = 'https://api.freecurrencyapi.com/v1/';
+//   const URL = `${BASE_URL}latest`;
+//   const response = await fetch(URL, options);
+//   const result = await response.text();
+//   const data = await JSON.parse(result);
+//   return data.data;
+// }
 
 // fetch and store latest rates info
 async function setData() {
@@ -129,7 +124,8 @@ async function setData() {
     localStorage.setItem('lastCheckedDay', new Date().getDay());
     localStorage.setItem('lastCheckedHour', new Date().getHours());
 
-    let currentRates = await getExchangeRates();
+    const response = await fetch();
+    let currentRates = await response.json();
 
     for (const rate in countryInfo) {
       switch (countryInfo[rate].code) {
