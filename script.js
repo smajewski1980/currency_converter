@@ -95,6 +95,8 @@ let countryInfo = {
   },
 };
 
+// for the netlify deploy, to hide the api key, there is a netlify function which has
+// access to the environment variables, and this fetch hits that function
 async function getExchangeRates() {
   const URL = '/.netlify/functions/fetch';
   const response = await fetch(URL);
@@ -107,7 +109,6 @@ async function getExchangeRates() {
 // fetch and store latest rates info
 async function setData() {
   const rates = {};
-  const now = Date.now();
   const lastCheckedDay = localStorage.getItem('lastCheckedDay');
 
   // if rate data doesn't exist, or is from yesterday or before 5pm today
