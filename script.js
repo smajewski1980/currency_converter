@@ -123,9 +123,12 @@ async function setData() {
     localStorage.setItem('lastCheckedHour', new Date().getHours());
 
     let currentRates = await getExchangeRates();
-    console.log(currentRates);
+
+    console.log(currentRates.data);
 
     for (const rate in countryInfo) {
+      console.log(currentRates[countryInfo[rate].code]);
+
       switch (countryInfo[rate].code) {
         case 'EUR':
           rates[countryInfo[rate].code] = new Rate(
