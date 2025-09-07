@@ -127,7 +127,7 @@ async function setData() {
     console.log(currentRates.data);
 
     for (const rate in countryInfo) {
-      console.log(currentRates[countryInfo[rate].code]);
+      console.log(currentRates.data[countryInfo[rate].code]);
 
       switch (countryInfo[rate].code) {
         case 'EUR':
