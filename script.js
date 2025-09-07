@@ -2,11 +2,10 @@ let rateObjects = {};
 
 // this makes an object for each country
 class Rate {
-  constructor(code, name, symbol, namePlural, rate) {
+  constructor(code, name, symbol, rate) {
     this.code = code;
     this.name = name;
     this.symbol = symbol;
-    this.namePlural = namePlural;
     this.rate = rate;
   }
 }
@@ -17,7 +16,6 @@ let countryInfo = {
     code: 'EUR',
     name: 'Euro',
     symbol: '€',
-    namePlural: 'Euros',
     image: './assets/euro_flag.png',
     sliderPos: '-70rem',
   },
@@ -25,7 +23,6 @@ let countryInfo = {
     code: 'USD',
     name: 'US Dollar',
     symbol: '$',
-    namePlural: 'US dollars',
     image: './assets/us_flag.png',
     sliderPos: '-10rem',
   },
@@ -33,7 +30,6 @@ let countryInfo = {
     code: 'JPY',
     name: 'Japanese Yen',
     symbol: '¥',
-    namePlural: 'Japanese yen',
     image: './assets/japan_flag.png',
     sliderPos: '-60rem',
   },
@@ -41,7 +37,6 @@ let countryInfo = {
     code: 'GBP',
     name: 'British Pound Sterling',
     symbol: '£',
-    namePlural: 'British pounds sterling',
     image: './assets/british_flag.png',
     sliderPos: '-90rem',
   },
@@ -49,7 +44,6 @@ let countryInfo = {
     code: 'PLN',
     name: 'Polish Zloty',
     symbol: 'zł',
-    namePlural: 'Polish zlotys',
     image: './assets/poland_flag.png',
     sliderPos: '-40rem',
   },
@@ -57,7 +51,6 @@ let countryInfo = {
     code: 'CHF',
     name: 'Swiss Franc',
     symbol: 'CHF',
-    namePlural: 'Swiss francs',
     image: './assets/switzerland_flag.png',
     sliderPos: '-30rem',
   },
@@ -65,7 +58,6 @@ let countryInfo = {
     code: 'TRY',
     name: 'Turkish Lira',
     symbol: 'TL',
-    namePlural: 'Turkish Lira',
     image: './assets/turkey_flag.png',
     sliderPos: '-20rem',
   },
@@ -73,7 +65,6 @@ let countryInfo = {
     code: 'AUD',
     name: 'Australian Dollar',
     symbol: 'AU$',
-    namePlural: 'Australian dollars',
     image: './assets/australia_flag.png',
     sliderPos: '-100rem',
   },
@@ -81,7 +72,6 @@ let countryInfo = {
     code: 'CAD',
     name: 'Canadian Dollar',
     symbol: 'CA$',
-    namePlural: 'Canadian dollars',
     image: './assets/canada_flag.png',
     sliderPos: '-80rem',
   },
@@ -89,7 +79,6 @@ let countryInfo = {
     code: 'MXN',
     name: 'Mexican Peso',
     symbol: 'MX$',
-    namePlural: 'Mexican pesos',
     image: './assets/mexico_flag.png',
     sliderPos: '-50rem',
   },
@@ -132,7 +121,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -141,7 +129,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -150,7 +137,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -159,7 +145,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -168,7 +153,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -177,7 +161,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -186,7 +169,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -195,7 +177,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -204,7 +185,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -213,7 +193,6 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -222,7 +201,6 @@ async function setData() {
       }
     }
     localStorage.setItem('currency_data', JSON.stringify(rates));
-
     populateRateObjects();
     return;
   }

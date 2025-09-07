@@ -3,11 +3,13 @@
   font-weight: 400;
   src: url('./assets/font/Quantico-Regular.ttf');
 }
+
 @font-face {
   font-family: 'Quantico';
   font-weight: 700;
   src: url('./assets/font/Quantico-Bold.ttf');
 }
+
 *,
 *::after,
 *::before {
@@ -15,19 +17,23 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --clr-font: rgb(253, 235, 175);
   --clr-font-secondary: hsl(46, 95%, 65%);
   --input-bg: rgba(82, 82, 82, 0.212);
   --input-bg-alt: rgba(82, 82, 82, 0.4);
 }
+
 img {
   display: block;
   max-width: 100%;
 }
+
 button {
   font: inherit;
 }
+
 body {
   background-blend-mode: lighten;
   background-color: rgba(107, 84, 49, 0.877);
@@ -37,6 +43,7 @@ body {
   min-height: 100vh;
   place-content: center;
 }
+
 h1 {
   color: var(--clr-font);
   filter: drop-shadow(0px 2px black);
@@ -46,12 +53,14 @@ h1 {
   text-align: center;
   font-size: clamp(1.75rem, 1.694rem + 0.255vw, 2rem);
 }
+
 main {
   backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 15px;
   padding-inline: 1.5rem;
 }
+
 select {
   background-color: var(--input-bg);
   border-radius: 5px;
@@ -66,13 +75,12 @@ select {
   text-align: center;
   text-shadow: 0px 2px black;
   width: 17rem;
-
-  /* margin-bottom: 0; */
-  /* filter: drop-shadow(0px 2px black); */
 }
+
 option {
   background-color: rgb(102, 79, 50);
 }
+
 p {
   color: var(--clr-font);
   filter: drop-shadow(0px 2px black);
@@ -81,6 +89,7 @@ p {
   font-weight: 400;
   text-align: center;
 }
+
 #select-amt {
   background: none;
   border: none;
@@ -96,16 +105,17 @@ p {
   text-align: center;
   text-shadow: 0px 2px black;
   width: 325px;
-
-  /* backdrop-filter: blur(5px); */
 }
+
 #select-amt:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--clr-font);
 }
+
 #select-amt::placeholder {
   color: var(--clr-font-secondary);
 }
+
 .converted {
   color: var(--clr-font-secondary);
   font-size: 2.5rem;
@@ -115,6 +125,7 @@ select:focus-visible {
 .currencySymb2 {
   font-size: 1.5rem;
 }
+
 button {
   backdrop-filter: blur(5px);
   background: none;
@@ -134,12 +145,14 @@ button {
   transition: all 0.2s ease;
   width: 10rem;
 }
+
 button:hover,
 button:focus-visible {
   background-color: rgba(250, 205, 56, 0.1);
   color: var(--clr-font-secondary);
   outline: 2px solid var(--clr-font-secondary);
 }
+
 .base-window,
 .conv-window {
   border-radius: 5px;
@@ -151,6 +164,7 @@ button:focus-visible {
   position: relative;
   width: 10rem;
 }
+
 .base-window:before,
 .conv-window:before {
   background-image: url('./assets/slider_vingette.png');
@@ -160,23 +174,26 @@ button:focus-visible {
   position: absolute;
   z-index: 99;
 }
+
 .base-window:after,
 .conv-window:after {
   content: '';
   inset: 0;
   position: absolute;
-
   box-shadow: inset 0px 0px 10px 4px rgba(66, 40, 11, 0.733),
     inset -5px 0px 13px 1px rgba(88, 53, 15, 0.733),
     inset 5px 0px 13px 1px rgba(95, 57, 17, 0.733),
     0px 1px 2px 1px rgba(70, 42, 12, 0.74);
 }
+
 .base-slider {
   --left-dist: -0rem;
 }
+
 .conv-slider {
   --left-dist: -0rem;
 }
+
 .base-slider,
 .conv-slider {
   background-blend-mode: screen;
@@ -188,6 +205,7 @@ button:focus-visible {
   position: absolute;
   transition: left 0.5s ease-in-out;
 }
+
 .base-slide,
 .conv-slide {
   display: flex;
@@ -195,6 +213,7 @@ button:focus-visible {
   place-content: center;
   width: 10rem;
 }
+
 .base-slide img,
 .conv-slide img {
   align-self: center;
@@ -202,6 +221,7 @@ button:focus-visible {
   filter: brightness(0.9);
   width: 40%;
 }
+
 .base-slide:nth-child(4) img,
 .conv-slide:nth-child(4) img {
   width: 30%;
