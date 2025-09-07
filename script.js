@@ -124,11 +124,7 @@ async function setData() {
 
     let currentRates = await getExchangeRates();
 
-    console.log(currentRates.data);
-
     for (const rate in countryInfo) {
-      console.log(currentRates.data[countryInfo[rate].code]);
-
       switch (countryInfo[rate].code) {
         case 'EUR':
           rates[countryInfo[rate].code] = new Rate(
@@ -136,7 +132,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'USD':
@@ -145,7 +141,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'JPY':
@@ -154,7 +150,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'GBP':
@@ -163,7 +159,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'AUD':
@@ -172,7 +168,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'CAD':
@@ -181,7 +177,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'MXN':
@@ -190,7 +186,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'TRY':
@@ -199,7 +195,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'PLN':
@@ -208,7 +204,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         case 'CHF':
@@ -217,7 +213,7 @@ async function setData() {
             countryInfo[rate].name,
             countryInfo[rate].symbol,
             countryInfo[rate].name_plural,
-            currentRates[countryInfo[rate].code],
+            currentRates.data[countryInfo[rate].code],
           );
           break;
         default:
