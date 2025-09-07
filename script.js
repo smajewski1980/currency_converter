@@ -131,7 +131,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -140,7 +140,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -149,7 +149,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -158,7 +158,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -167,7 +167,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -176,7 +176,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -185,7 +185,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -194,7 +194,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -203,7 +203,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
@@ -212,7 +212,7 @@ async function setData() {
             countryInfo[rate].code,
             countryInfo[rate].name,
             countryInfo[rate].symbol,
-            countryInfo[rate].name_plural,
+            countryInfo[rate].namePlural,
             currentRates.data[countryInfo[rate].code],
           );
           break;
