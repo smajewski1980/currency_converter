@@ -98,7 +98,7 @@ let countryInfo = {
 const options = {
   method: 'GET',
   headers: {
-    apikey: 'fca_live_TuB09qj5pp4FP2CEOarcFKOJ2tC4MI8LE2PyUWux',
+    apikey: API_KEY, //this needs to be changed if this branch is used
   },
 };
 
